@@ -1,0 +1,48 @@
+.card-default{
+    width:auto;
+    display: flex;
+    align-items: center;
+    background-color: #222223;
+    border-radius: 10px;
+    color:white;
+    margin-top: 40px;
+
+    & .card-description{
+        display: flex;
+        width: 80%;
+        justify-content: base;
+        justify-content: space-between;
+        align-items: center;
+    }
+    & p.card-title.cases{
+            color: #df8888;
+            line-height: 16px;
+            font-size: 16px;
+            margin: 0px;
+            font-weight: 200;
+        }
+    }
+
+    .card-icon-default.cases{
+        color:#df8888;;
+        margin:0px;
+        padding: 20px 5px 15px 13px;
+    }
+    .default-title{
+        color: white;
+        line-height: 16px;
+        font-size: 15px;
+        margin: 0px;
+    }
+    .deafult-total-style{
+        font-size: 12px;
+        font-weight: 400;
+        color:white;
+        font-size:16px;
+        margin:0px;
+
+    }
+
+
+
+

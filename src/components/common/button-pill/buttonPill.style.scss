@@ -1,0 +1,21 @@
+.button-pill{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border: 1px solid white;
+    padding: 4px;
+
+    border-radius: 12px;
+      &:focus {
+        outline: orange 5px auto;
+      }
+
+      p{
+          color:white;
+      }
+      
+}
