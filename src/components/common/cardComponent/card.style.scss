@@ -21,7 +21,15 @@
             margin: 0px;
             font-weight: 200;
         }
+
+    & p.card-title.recovered{
+        color: 'green';
+        line-height: 16px;
+        font-size: 16px;
+        margin: 0px;
+        font-weight: 200;
     }
+
 
     .card-icon-default.cases{
         color:#df8888;;
@@ -42,6 +50,8 @@
         margin:0px;
 
     }
+
+}
 
 
 

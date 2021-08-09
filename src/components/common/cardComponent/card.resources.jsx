@@ -1,5 +1,6 @@
 
 import BugReportOutlinedIcon from '@material-ui/icons/BugReportOutlined';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 export const cardConfiguration = {
     cases:{
@@ -9,7 +10,7 @@ export const cardConfiguration = {
     },
     recovered:{
         title:'recovered',
-        icon: <BugReportOutlinedIcon/>,
+        icon: <FavoriteBorderIcon/>,
         colorLine: 'green'
     },
 

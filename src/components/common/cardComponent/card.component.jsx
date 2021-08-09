@@ -12,7 +12,7 @@ const Card = ({data,cardType,styles})=> {
             cardConfig && (
                 <span className={`card-description ${cardType}`}>
                     <p className={`card-title ${cardType}`}>{cardConfig.title}</p>
-                    <p className={`deafult-total-style${cardType}`}>{data}</p>
+                    <p className={`deafult-total-style ${cardType}`}>{data}</p>
                 </span>
             ) 
         )
