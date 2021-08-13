@@ -26,7 +26,6 @@ export const getAllCountriesData=()=>(dispatch)=>{
 
 
 export const getAllCasesWorldWide =()=>(dispatch)=>{
-    console.log('getAllCasesWorldWide')
     service.getCasesWorldwide().then((data)=>{
         return dispatch({type:GET_CASES_WORLDWIDE, payload:data})
     });

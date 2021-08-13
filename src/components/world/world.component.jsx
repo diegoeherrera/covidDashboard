@@ -15,6 +15,7 @@ return(
 <section className='card-container'>
     <Wrapper>
         <Card title='cases' cardType='cases' data={totalCases}/>
+        <Card title='recovered' cardType='deaths' data={totalCases}/>
         <Card title='recovered' cardType='recovered' data={totalCases}/>
         
     </Wrapper>

@@ -11,7 +11,13 @@ const Card = ({data,cardType,styles})=> {
         return(
             cardConfig && (
                 <span className={`card-description ${cardType}`}>
+                    <span className='card-header'>
+                        <span className={`card-icon-default ${cardType}`}>
+                        {cardConfig.icon}
+                    </span>
                     <p className={`card-title ${cardType}`}>{cardConfig.title}</p>
+                    </span>
+                    
                     <p className={`deafult-total-style ${cardType}`}>{data}</p>
                 </span>
             ) 
@@ -19,10 +25,7 @@ const Card = ({data,cardType,styles})=> {
     }
     const renderDefaultCard =  () =>{
         return(
-            <span className={`card-default }`}>
-                <span className={`card-icon-default ${cardType}`}>
-                    {cardConfig.icon}
-                </span>
+            <span className={`card-container`}>
                {renderCardBody(cardType)}
             </span>
         )

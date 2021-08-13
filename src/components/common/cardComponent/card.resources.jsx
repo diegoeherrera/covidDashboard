@@ -1,6 +1,7 @@
 
 import BugReportOutlinedIcon from '@material-ui/icons/BugReportOutlined';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import AirlineSeatFlatIcon from '@material-ui/icons/AirlineSeatFlat';
 
 export const cardConfiguration = {
     cases:{
@@ -14,8 +15,9 @@ export const cardConfiguration = {
         colorLine: 'green'
     },
 
-    death:{
-        icon: 'iconName',
+    deaths:{
+        title:'deaths',
+        icon: <AirlineSeatFlatIcon/>,
         colorLine: 'red'
     }
 
