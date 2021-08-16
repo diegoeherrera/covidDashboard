@@ -1,9 +1,11 @@
-import {GET_ALL_COUNTRY_DATA, GET_ALL_COUNTRY_DATA_SUCCESS,GET_ALL_COUNTRY_DATA_ERROR, GET_CASES_WORLDWIDE} from './actions'
+import {GET_ALL_COUNTRY_DATA, GET_ALL_COUNTRY_DATA_SUCCESS,GET_ALL_COUNTRY_DATA_ERROR, GET_RECORDS,GET_TOTALS} from './actions'
 import { combineReducers } from 'redux'
 import {getTotalsbyField} from './utils'
 export const initialState = {
     data:null,
-    casesWorlwide:[],
+    totals:[],
+    records:[],
+
     loading:false
 }
 
@@ -27,14 +29,19 @@ const countryDataReducer = (state=initialState,action)=>{
                 ...state,
                 error:action.payload
             }
-            case   GET_CASES_WORLDWIDE:
-                console.log('GET_CASES_WORLDWIDE: ', action.payload)
+            case   GET_RECORDS:
+                console.log('GET_RECORDS:::: ', action.payload)
                 return{
                     ...state,
-                    worldData:action.payload,
-                    totalDeath:getTotalsbyField(action.payload,'deaths')
+                    records:action.payload,
                 }
-            
+                case   GET_TOTALS:
+                    console.log('GET_TOTALS: ', action.payload)
+                    return{
+                        ...state,
+                        totals:action.payload
+                        //totalDeath:getTotalsbyField(action.payload,'deaths')
+                    }
         
         default: return state
     }

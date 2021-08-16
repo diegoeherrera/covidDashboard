@@ -1,5 +1,5 @@
 
-import './appHeader.styles.scss'
+import './appHeader.style.scss'
 
 const AppHeader = ()=>(
     <header className="app-header">

@@ -16,15 +16,24 @@ class BaseService{
         }).catch(error=>error)}
 
 
-        this.getCasesWorldwide = async function (){    
+        this.getTotals = async function (){    
            try{
-                const response = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=all')
+                const response = await fetch('https://disease.sh/v3/covid-19/all')
                 const formatedResponse = response.json()
-                console.log('formatedResponse:', formatedResponse)
                 return formatedResponse;
             }catch(error){
                 return error
             } 
+        }
+
+        this.getAllRecords = async function(){
+            try{
+                const response = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=all');
+                const formatedResponse = response.json()
+                return formatedResponse;
+            }catch(error){
+                return new Error();
+            }
         }
     }
 }

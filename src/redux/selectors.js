@@ -1,5 +1,8 @@
 import { createSelector } from 'reselect';
 const allcountryDataState = (state)=>state
+const totals = (state) => state;
+const records = (state) => state
+
 
 const getTopTen = (list)=>{
     if(list){
@@ -18,5 +21,17 @@ export const fetchWorlData=createSelector(
     allcountryDataState,
     (worlData)=>(allcountryDataState)=>allcountryDataState.worldData 
 )
+
+export const totalList = createSelector(
+    totals,
+    (totals)=>totals.data || []
+)
+
+export const recordsList = createSelector(
+    records,
+    (records)=>records || []
+)
+
+
 
 

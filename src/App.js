@@ -3,30 +3,39 @@ import CardList from './components/cardList.component'
 import WorldComponent  from './components/world/world.component';
 import AppHeader from './components/appHeader/appHeader.component'
 import {useEffect,useState} from 'react';
-import {getAllCountriesData, getAllCasesWorldWide} from './redux/actions'
+import {getRecordList, getTotals, getCases} from './redux/actions'
 import {useSelector, useDispatch} from 'react-redux'
-import {topTenByCases} from './redux/selectors'
+import {topTenByCases, totalList, recordsList} from './redux/selectors'
 import  './app.styles.scss';
 
 const App =()=> {
 const [countries, setCountriesData] = useState()
 const dispatch=useDispatch();
 const countriesData = useSelector(state=>state.data)
-const casesWorlwide = useSelector(state=>state.data ? state.data.worldData : null)
-const topTen = countriesData ? topTenByCases(countriesData) : null
-console.log(topTen)
-useEffect(()=>{
-  if(!countriesData) dispatch(getAllCountriesData())
-},[dispatch])
+const {records} = useSelector(recordsList)
+// const topTen = countriesData ? topTenByCases(countriesData) : null
+const {totals} = useSelector(totalList);
+
 
 useEffect(()=>{
-  if(!casesWorlwide) dispatch(getAllCasesWorldWide())
-},[casesWorlwide, dispatch])
+  if(records) dispatch(getRecordList())
+  console.log('records:se ', records)
+},[records])
 
+useEffect(()=>{
+  if(!totals) dispatch(getTotals())
+  console.log('totals:se ', totals)
+},[totals])
+const isLoading = records && totals
   return (
     <div className="app">
       <AppHeader/>
-      {casesWorlwide && <WorldComponent worldData={casesWorlwide}/>}
+      {
+      (<WorldComponent
+       records={records}
+       totals={totals}/>) 
+       
+       }
     </div> 
   );
 }

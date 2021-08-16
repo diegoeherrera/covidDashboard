@@ -1,22 +1,26 @@
 import {react, useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getAllCasesWorldWide} from '../../redux/actions'
+import {getTotals} from '../../redux/actions'
 import WorldCharts from './worldCharts.component'
 import Wrapper from '../common/wrapper/wrapper.component'
 import Card from '../common/cardComponent/card.component'
 import { useGetCases } from '../../hooks/useGetCases'
+// import {getAllCountriesData, getTotals} from './redux/actions'
 import './world.styles.scss';
 
-const WorldComponent = ({worldData})=>{
-    console.log('WorldComponent: ',worldData )
-    const totalCases = useGetCases(worldData)
-
+const WorldComponent = ({records, totals})=>{
+   
+/*     const totalCases = useGetCases(getTotals)
+    const disptach = useDispatch()
+    disptach(disptach);
+    const setTotals = useDispatch(getTotals) */
+    // const totals = useSelector(totals)
 return(
 <section className='card-container'>
     <Wrapper>
-        <Card title='cases' cardType='cases' data={totalCases}/>
-        <Card title='recovered' cardType='deaths' data={totalCases}/>
-        <Card title='recovered' cardType='recovered' data={totalCases}/>
+        <Card title='cases' cardType='cases' data={totals} records={records} />
+       {/*  <Card title='recovered' cardType='deaths' data={totals} />
+        <Card title='recovered' cardType='recovered' data={totals} /> */}
         
     </Wrapper>
     </section>
