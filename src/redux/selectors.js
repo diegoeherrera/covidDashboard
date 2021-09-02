@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 const allcountryDataState = (state)=>state
-const totals = (state) => state;
-const records = (state) => state
+const totals = (state) => state.data.totals;
+const records = (state) => state.data.records
 
 
 const getTopTen = (list)=>{
@@ -29,7 +29,7 @@ export const totalList = createSelector(
 
 export const recordsList = createSelector(
     records,
-    (records)=>records || []
+    (records)=>records
 )
 
 

@@ -4,19 +4,26 @@ import { getCardConfiguration } from './card.resources'
 import BarChart from '../../common/bar-chart/bar-chart.component'
 
 
-const Card = ({data,cardType,styles,records})=> {
+const Card = ({data,cardType,styles,records, title})=> {
     const cardConfig = getCardConfiguration(cardType)
     const [showExtraInfo, setShowExtraInfo ]= useState(false)
     const renderCardBody = (cardType)=>{
         const cardStyle = cardConfig.style
         const handleClick = () =>{
+            console.log('aja')
             setShowExtraInfo(!showExtraInfo)
         }
-       
-   
+    const getCardValue = ()=>{
+        return data[cardType]
+    }
+        
+        console.log('data: ', data)
         return(
-            cardConfig && records && (
+            data && records  ? (
                     <span className={`card-description ${cardType}`} onClick={handleClick}>
+                                               <span>
+                            { showExtraInfo && <BarChart data={records[cardType]} title={title} />}
+                        </span>
                         <span className="card-content">
                             <span className='card-header'>
                                 <span className={`card-icon-default ${cardType}`}>
@@ -24,14 +31,12 @@ const Card = ({data,cardType,styles,records})=> {
                                 </span>
                                 <p className={`card-title ${cardType}`}>{cardConfig.title}</p>
                             </span>
-                                <p className={`deafult-total-style ${cardType}`}>{data[`${cardType}`]}</p>
+                                <p className={`deafult-total-style ${cardType}`}>{getCardValue()}</p>
                         </span>
-                        <span>
-                            { true && showExtraInfo && <BarChart />}
-                        </span>
+
                     </span>
                 
-            ) 
+            ) : null
         )
     }
     const renderDefaultCard =  () =>{

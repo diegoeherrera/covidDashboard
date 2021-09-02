@@ -12,30 +12,29 @@ const App =()=> {
 const [countries, setCountriesData] = useState()
 const dispatch=useDispatch();
 const countriesData = useSelector(state=>state.data)
-const {records} = useSelector(recordsList)
+const records = useSelector(state=>state.data.records)
 // const topTen = countriesData ? topTenByCases(countriesData) : null
-const {totals} = useSelector(totalList);
+const totals = useSelector(state=>state.data.totals);
 
 
 useEffect(()=>{
-  if(records) dispatch(getRecordList())
-  console.log('records:se ', records)
+  if(records.length < 1) dispatch(getRecordList())
 },[records])
 
 useEffect(()=>{
-  if(!totals) dispatch(getTotals())
-  console.log('totals:se ', totals)
+  if(totals.length < 1) dispatch(getTotals())
 },[totals])
+
 const isLoading = records && totals
   return (
     <div className="app">
-      <AppHeader/>
-      {
-      (<WorldComponent
-       records={records}
-       totals={totals}/>) 
-       
-       }
+      {false ? 'loading...' : (
+        <React.Fragment>
+          <AppHeader/>
+          <WorldComponent
+          records={records}
+          totals={totals}/>
+        </React.Fragment> )}
     </div> 
   );
 }

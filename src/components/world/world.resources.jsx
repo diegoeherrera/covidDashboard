@@ -1,10 +1,10 @@
 export const processDataForChart = (data)=>{
 
-    const deaths = data.deaths
+
     let result = [];
-    const dataProps = Object.keys(deaths)
-    const dataValues = Object.values(deaths)
-    const dataLength =Object.keys(deaths).length
+    const dataProps = Object.keys(data)
+    const dataValues = Object.values(data)
+    const dataLength =Object.keys(data).length
     for (let i=0; i<dataLength; i++){
         console.log(dataProps[i])
         result.push({
@@ -19,10 +19,9 @@ export const processDataForChart = (data)=>{
     return result
 }
 
-export const getLastSevenDays = (data)=>{
+export const getLastSevenDays = (data, limit)=>{
     const getValuesAndKeys = processDataForChart(data);
-    const getLastSeven = getValuesAndKeys.slice((getValuesAndKeys.length-100),getValuesAndKeys.length)
-    console.log("getLastSeven: ", getLastSeven)
+    const getLastSeven = getValuesAndKeys.slice((getValuesAndKeys.length - limit),getValuesAndKeys.length)
     return getLastSeven;
 }
 

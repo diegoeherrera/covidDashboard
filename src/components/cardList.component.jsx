@@ -11,7 +11,6 @@ const CardList = ({data,topTen,cases,title=''})=>{
     const extractGraphicData=(topTen)=>{
         const result=[];
         for(let country of topTen){
-           
               result.push({
                 country: country.country,
                 cases:country.cases,

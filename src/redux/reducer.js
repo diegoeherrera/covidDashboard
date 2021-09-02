@@ -2,11 +2,10 @@ import {GET_ALL_COUNTRY_DATA, GET_ALL_COUNTRY_DATA_SUCCESS,GET_ALL_COUNTRY_DATA_
 import { combineReducers } from 'redux'
 import {getTotalsbyField} from './utils'
 export const initialState = {
-    data:null,
     totals:[],
     records:[],
-
-    loading:false
+    loading:false,
+    error:null
 }
 
 const countryDataReducer = (state=initialState,action)=>{
